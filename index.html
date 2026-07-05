@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南一版 - &#x932F;&#x5B57;&#x641C;&#x67E5;&#x968A;</title>
+    <style>
+        :root {
+            --bg: #f7faf9;
+            --panel: #ffffff;
+            --ink: #163235;
+            --muted: #526a6e;
+            --line: #d7e4e2;
+            --brand: #198a86;
+            --brand-dark: #12615f;
+            --accent: #f2a541;
+            --rose: #d85f6f;
+            --blue: #3f6fab;
+            --shadow: 0 14px 34px rgba(21, 72, 77, 0.14);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgba(25, 138, 134, 0.10), transparent 280px), var(--bg);
+            color: var(--ink);
+            font-family: "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+        }
+        main {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 28px 0 42px;
+        }
+        header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 18px;
+            align-items: end;
+            margin-bottom: 18px;
+        }
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3.8rem);
+            line-height: 1.05;
+            letter-spacing: 0;
+        }
+        .subtitle {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .count {
+            min-width: 128px;
+            padding: 14px 18px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--panel);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .count strong {
+            display: block;
+            color: var(--brand-dark);
+            font-size: 2rem;
+            line-height: 1;
+        }
+        .count span {
+            display: block;
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        .toolbar {
+            display: grid;
+            gap: 14px;
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--panel);
+            box-shadow: var(--shadow);
+        }
+        .filter-row {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+        .filter-label {
+            padding-top: 9px;
+            color: var(--muted);
+            font-weight: 700;
+        }
+        .segmented {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        button, input, a { font: inherit; }
+        .chip {
+            min-height: 42px;
+            padding: 0 16px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #f8fbfa;
+            color: var(--ink);
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .chip[aria-pressed="true"] {
+            border-color: var(--brand);
+            background: var(--brand);
+            color: #ffffff;
+        }
+        .search {
+            width: 100%;
+            min-height: 46px;
+            padding: 0 14px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #ffffff;
+            color: var(--ink);
+        }
+        .search:focus,
+        .chip:focus,
+        .lesson-card:focus {
+            outline: 3px solid rgba(25, 138, 134, 0.22);
+            outline-offset: 2px;
+        }
+        .groups {
+            display: grid;
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .group {
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.86);
+        }
+        .group-title {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            align-items: center;
+            margin: 0 0 14px;
+            font-size: 1.35rem;
+        }
+        .group-title span {
+            color: var(--muted);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 12px;
+        }
+        .lesson-card {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 142px;
+            padding: 14px;
+            border: 1px solid var(--line);
+            border-left: 6px solid var(--brand);
+            border-radius: 8px;
+            background: #ffffff;
+            color: inherit;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(21, 72, 77, 0.08);
+        }
+        .lesson-card:nth-child(3n + 2) { border-left-color: var(--accent); }
+        .lesson-card:nth-child(3n) { border-left-color: var(--rose); }
+        .lesson-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(21, 72, 77, 0.14);
+        }
+        .lesson-code {
+            color: var(--blue);
+            font-size: 0.95rem;
+            font-weight: 800;
+        }
+        .lesson-title {
+            margin: 10px 0;
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+        .lesson-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .empty {
+            padding: 28px;
+            border: 1px dashed var(--line);
+            border-radius: 8px;
+            background: #ffffff;
+            color: var(--muted);
+            text-align: center;
+            font-weight: 700;
+        }
+        @media (max-width: 720px) {
+            main { width: min(100% - 20px, 1180px); padding-top: 18px; }
+            header { grid-template-columns: 1fr; }
+            .count { width: 100%; text-align: left; }
+            .filter-row { grid-template-columns: 1fr; gap: 8px; }
+            .filter-label { padding-top: 0; }
+            .chip { flex: 1 1 86px; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <div>
+                <h1>南一版</h1>
+                <p class="subtitle">&#x9078;&#x64C7;&#x5E74;&#x7D1A;&#x8207;&#x8AB2;&#x6B21;&#xFF0C;&#x9032;&#x5165;&#x5C0D;&#x61C9;&#x7684;&#x5B57;&#x8A5E;&#x8207;&#x53E5;&#x5B50;&#x7DF4;&#x7FD2;&#x3002;</p>
+            </div>
+            <div class="count" aria-live="polite">
+                <strong id="visibleCount">0</strong>
+                <span>&#x76EE;&#x524D;&#x8AB2;&#x6578;</span>
+            </div>
+        </header>
+        <section class="toolbar" aria-label="lesson filters">
+            <div class="filter-row">
+                <div class="filter-label">&#x5E74;&#x7D1A;</div>
+                <div class="segmented" id="gradeFilters"></div>
+            </div>
+            <div class="filter-row">
+                <label class="filter-label" for="searchInput">&#x641C;&#x5C0B;</label>
+                <input class="search" id="searchInput" type="search" autocomplete="off" placeholder="&#x8F38;&#x5165;&#x8AB2;&#x540D;&#x6216;&#x8AB2;&#x78BC;">
+            </div>
+        </section>
+        <section class="groups" id="lessonGroups" aria-live="polite"></section>
+    </main>
+    <script>
+        const LESSONS = [{"grade":"1A","lesson":"L01","title":"小船","targets":10,"wordQuestions":10,"sentenceQuestions":10,"code":"南1A01","path":"南一-1A/南1A01_小船.html"},{"grade":"1A","lesson":"L02","title":"印手印","targets":10,"wordQuestions":10,"sentenceQuestions":10,"code":"南1A02","path":"南一-1A/南1A02_印手印.html"},{"grade":"1A","lesson":"L03","title":"吹泡泡","targets":10,"wordQuestions":10,"sentenceQuestions":10,"code":"南1A03","path":"南一-1A/南1A03_吹泡泡.html"},{"grade":"1A","lesson":"L04","title":"你好","targets":11,"wordQuestions":11,"sentenceQuestions":11,"code":"南1A04","path":"南一-1A/南1A04_你好.html"},{"grade":"1A","lesson":"L05","title":"外星人","targets":11,"wordQuestions":11,"sentenceQuestions":11,"code":"南1A05","path":"南一-1A/南1A05_外星人.html"},{"grade":"1A","lesson":"L06","title":"小金魚","targets":11,"wordQuestions":11,"sentenceQuestions":11,"code":"南1A06","path":"南一-1A/南1A06_小金魚.html"},{"grade":"1A","lesson":"L07","title":"紅紅的春","targets":11,"wordQuestions":11,"sentenceQuestions":11,"code":"南1A07","path":"南一-1A/南1A07_紅紅的春.html"},{"grade":"2A","lesson":"L01","title":"打招呼","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A01","path":"南一-2A/南2A01_打招呼.html"},{"grade":"2A","lesson":"L02","title":"爬梯子","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A02","path":"南一-2A/南2A02_爬梯子.html"},{"grade":"2A","lesson":"L03","title":"勇氣樹","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A03","path":"南一-2A/南2A03_勇氣樹.html"},{"grade":"2A","lesson":"L04","title":"一天的時間","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A04","path":"南一-2A/南2A04_一天的時間.html"},{"grade":"2A","lesson":"L05","title":"小書蟲","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A05","path":"南一-2A/南2A05_小書蟲.html"},{"grade":"2A","lesson":"L06","title":"從自己開始","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A06","path":"南一-2A/南2A06_從自己開始.html"},{"grade":"2A","lesson":"L07","title":"等兔子來撞樹","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A07","path":"南一-2A/南2A07_等兔子來撞樹.html"},{"grade":"2A","lesson":"L08","title":"角和腳","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A08","path":"南一-2A/南2A08_角和腳.html"},{"grade":"2A","lesson":"L09","title":"赤腳國王","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A09","path":"南一-2A/南2A09_赤腳國王.html"},{"grade":"2A","lesson":"L10","title":"去農場玩","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A10","path":"南一-2A/南2A10_去農場玩.html"},{"grade":"2A","lesson":"L11","title":"幸福湯圓","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A11","path":"南一-2A/南2A11_幸福湯圓.html"},{"grade":"2A","lesson":"L12","title":"到野外上課","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南2A12","path":"南一-2A/南2A12_到野外上課.html"},{"grade":"3A","lesson":"L01","title":"你好，新朋友","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A01","path":"南一-3A/南3A01_你好，新朋友.html"},{"grade":"3A","lesson":"L02","title":"我們的約定","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A02","path":"南一-3A/南3A02_我們的約定.html"},{"grade":"3A","lesson":"L03","title":"下課十分鐘","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A03","path":"南一-3A/南3A03_下課十分鐘.html"},{"grade":"3A","lesson":"L04","title":"留住今天的太陽","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A04","path":"南一-3A/南3A04_留住今天的太陽.html"},{"grade":"3A","lesson":"L05","title":"火大了","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A05","path":"南一-3A/南3A05_火大了.html"},{"grade":"3A","lesson":"L06","title":"我該怎麼辦?","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A06","path":"南一-3A/南3A06_我該怎麼辦_.html"},{"grade":"3A","lesson":"L07","title":"最年輕的奶奶","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A07","path":"南一-3A/南3A07_最年輕的奶奶.html"},{"grade":"3A","lesson":"L08","title":"魔「髮」哥哥","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A08","path":"南一-3A/南3A08_魔「髮」哥哥.html"},{"grade":"3A","lesson":"L09","title":"穿白袍的醫生伯伯","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A09","path":"南一-3A/南3A09_穿白袍的醫生伯伯.html"},{"grade":"3A","lesson":"L10","title":"唉呀!誤會大了","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A10","path":"南一-3A/南3A10_唉呀!誤會大了.html"},{"grade":"3A","lesson":"L11","title":"石虎的告白","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A11","path":"南一-3A/南3A11_石虎的告白.html"},{"grade":"3A","lesson":"L12","title":"昆蟲的保命妙招","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南3A12","path":"南一-3A/南3A12_昆蟲的保命妙招.html"},{"grade":"4A","lesson":"L01","title":"窗口邊的臺灣欒樹","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A01","path":"南一-4A/南4A01_窗口邊的臺灣欒樹.html"},{"grade":"4A","lesson":"L02","title":"奶奶的排骨粥","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A02","path":"南一-4A/南4A02_奶奶的排骨粥.html"},{"grade":"4A","lesson":"L03","title":"充滿希望的五味屋","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A03","path":"南一-4A/南4A03_充滿希望的五味屋.html"},{"grade":"4A","lesson":"L04","title":"玉山之歌","targets":14,"wordQuestions":14,"sentenceQuestions":14,"code":"南4A04","path":"南一-4A/南4A04_玉山之歌.html"},{"grade":"4A","lesson":"L05","title":"高舉臺灣之光","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A05","path":"南一-4A/南4A05_高舉臺灣之光.html"},{"grade":"4A","lesson":"L06","title":"臺灣的驕傲","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A06","path":"南一-4A/南4A06_臺灣的驕傲.html"},{"grade":"4A","lesson":"L07","title":"到此「藝」遊","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A07","path":"南一-4A/南4A07_到此「藝」遊.html"},{"grade":"4A","lesson":"L08","title":"四季的頭髮","targets":13,"wordQuestions":13,"sentenceQuestions":13,"code":"南4A08","path":"南一-4A/南4A08_四季的頭髮.html"},{"grade":"4A","lesson":"L09","title":"阿白觀察記","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A09","path":"南一-4A/南4A09_阿白觀察記.html"},{"grade":"4A","lesson":"L10","title":"老鼠嫁女兒","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A10","path":"南一-4A/南4A10_老鼠嫁女兒.html"},{"grade":"4A","lesson":"L11","title":"豆粥婆婆","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A11","path":"南一-4A/南4A11_豆粥婆婆.html"},{"grade":"4A","lesson":"L12","title":"戴斗笠的地藏","targets":15,"wordQuestions":15,"sentenceQuestions":15,"code":"南4A12","path":"南一-4A/南4A12_戴斗笠的地藏.html"},{"grade":"5A","lesson":"L01","title":"幸福筆記本","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A01","path":"南一-5A/南5A01_幸福筆記本.html"},{"grade":"5A","lesson":"L02","title":"做人做事做長久","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A02","path":"南一-5A/南5A02_做人做事做長久.html"},{"grade":"5A","lesson":"L03","title":"孔雀錯了","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A03","path":"南一-5A/南5A03_孔雀錯了.html"},{"grade":"5A","lesson":"L04","title":"特別的海","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A04","path":"南一-5A/南5A04_特別的海.html"},{"grade":"5A","lesson":"L05","title":"漫遊花東","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A05","path":"南一-5A/南5A05_漫遊花東.html"},{"grade":"5A","lesson":"L06","title":"護送螃蟹過馬路","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A06","path":"南一-5A/南5A06_護送螃蟹過馬路.html"},{"grade":"5A","lesson":"L07","title":"高第的魔法建築","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A07","path":"南一-5A/南5A07_高第的魔法建築.html"},{"grade":"5A","lesson":"L08","title":"常常我的家鄉味","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A08","path":"南一-5A/南5A08_常常我的家鄉味.html"},{"grade":"5A","lesson":"L09","title":"小小力量將世界照亮","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A09","path":"南一-5A/南5A09_小小力量將世界照亮.html"},{"grade":"5A","lesson":"L10","title":"男生說，女生說","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A10","path":"南一-5A/南5A10_男生說，女生說.html"},{"grade":"5A","lesson":"L11","title":"耶誕禮物","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A11","path":"南一-5A/南5A11_耶誕禮物.html"},{"grade":"5A","lesson":"L12","title":"漫遊詩情","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南5A12","path":"南一-5A/南5A12_漫遊詩情.html"},{"grade":"6A","lesson":"L01","title":"在天晴了的時候","targets":10,"wordQuestions":10,"sentenceQuestions":10,"code":"南6A01","path":"南一-6A/南6A01_在天晴了的時候.html"},{"grade":"6A","lesson":"L02","title":"珍珠鳥","targets":19,"wordQuestions":19,"sentenceQuestions":19,"code":"南6A02","path":"南一-6A/南6A02_珍珠鳥.html"},{"grade":"6A","lesson":"L03","title":"客至","targets":19,"wordQuestions":19,"sentenceQuestions":19,"code":"南6A03","path":"南一-6A/南6A03_客至.html"},{"grade":"6A","lesson":"L04","title":"贏得喝采的輸家","targets":19,"wordQuestions":19,"sentenceQuestions":19,"code":"南6A04","path":"南一-6A/南6A04_贏得喝采的輸家.html"},{"grade":"6A","lesson":"L05","title":"哇!原來如此","targets":19,"wordQuestions":19,"sentenceQuestions":19,"code":"南6A05","path":"南一-6A/南6A05_哇!原來如此.html"},{"grade":"6A","lesson":"L06","title":"登月先鋒","targets":19,"wordQuestions":19,"sentenceQuestions":19,"code":"南6A06","path":"南一-6A/南6A06_登月先鋒.html"},{"grade":"6A","lesson":"L07","title":"明智的抉擇","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南6A07","path":"南一-6A/南6A07_明智的抉擇.html"},{"grade":"6A","lesson":"L08","title":"飢渴的好「火」伴","targets":19,"wordQuestions":19,"sentenceQuestions":19,"code":"南6A08","path":"南一-6A/南6A08_飢渴的好「火」伴.html"},{"grade":"6A","lesson":"L09","title":"火燒連環船","targets":19,"wordQuestions":19,"sentenceQuestions":19,"code":"南6A09","path":"南一-6A/南6A09_火燒連環船.html"},{"grade":"6A","lesson":"L10","title":"戲術","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南6A10","path":"南一-6A/南6A10_戲術.html"},{"grade":"6A","lesson":"L11","title":"紀念照","targets":18,"wordQuestions":18,"sentenceQuestions":18,"code":"南6A11","path":"南一-6A/南6A11_紀念照.html"},{"grade":"6A","lesson":"L12","title":"少年筆耕","targets":19,"wordQuestions":19,"sentenceQuestions":19,"code":"南6A12","path":"南一-6A/南6A12_少年筆耕.html"}];
+        const ALL = "\u5168\u90e8";
+        const state = { grade: ALL, query: "" };
+        const gradeOrder = [ALL, "1A", "2A", "3A", "4A", "5A", "6A"];
+        const gradeFilters = document.getElementById("gradeFilters");
+        const lessonGroups = document.getElementById("lessonGroups");
+        const visibleCount = document.getElementById("visibleCount");
+        const searchInput = document.getElementById("searchInput");
+
+        function createFilterButton(label) {
+            const button = document.createElement("button");
+            button.className = "chip";
+            button.type = "button";
+            button.textContent = label;
+            button.setAttribute("aria-pressed", state.grade === label ? "true" : "false");
+            button.addEventListener("click", () => {
+                state.grade = label;
+                render();
+            });
+            return button;
+        }
+        function renderFilters() {
+            gradeFilters.replaceChildren(...gradeOrder.map(createFilterButton));
+        }
+        function lessonNumber(item) {
+            const match = String(item.lesson).match(/\d+/);
+            return match ? Number(match[0]) : 0;
+        }
+        function filterLessons() {
+            const query = state.query.trim().toLowerCase();
+            return LESSONS
+                .filter(item => state.grade === ALL || item.grade === state.grade)
+                .filter(item => {
+                    if (!query) return true;
+                    return [item.grade, item.lesson, item.title, item.code].join(" ").toLowerCase().includes(query);
+                })
+                .sort((a, b) => {
+                    const gradeDiff = gradeOrder.indexOf(a.grade) - gradeOrder.indexOf(b.grade);
+                    if (gradeDiff) return gradeDiff;
+                    const lessonDiff = lessonNumber(a) - lessonNumber(b);
+                    if (lessonDiff) return lessonDiff;
+                    return a.title.localeCompare(b.title, "zh-Hant");
+                });
+        }
+        function renderLessonCard(item) {
+            const card = document.createElement("a");
+            card.className = "lesson-card";
+            card.href = encodeURI(item.path);
+            const code = document.createElement("div");
+            code.className = "lesson-code";
+            code.textContent = `${item.code} \u00b7 ${item.lesson}`;
+            const title = document.createElement("div");
+            title.className = "lesson-title";
+            title.textContent = item.title;
+            const meta = document.createElement("div");
+            meta.className = "lesson-meta";
+            const totalQuestions = Number(item.wordQuestions) + Number(item.sentenceQuestions);
+            meta.innerHTML = `<span>${item.targets} \u500b\u76ee\u6a19\u5b57</span><span>${totalQuestions} \u984c</span>`;
+            card.append(code, title, meta);
+            return card;
+        }
+        function renderGroups(lessons) {
+            if (!lessons.length) {
+                const empty = document.createElement("div");
+                empty.className = "empty";
+                empty.textContent = "\u627e\u4e0d\u5230\u7b26\u5408\u689d\u4ef6\u7684\u8ab2\u7a0b";
+                lessonGroups.replaceChildren(empty);
+                return;
+            }
+            const grouped = new Map();
+            lessons.forEach(item => {
+                if (!grouped.has(item.grade)) grouped.set(item.grade, []);
+                grouped.get(item.grade).push(item);
+            });
+            const sections = Array.from(grouped.entries()).map(([grade, items]) => {
+                const section = document.createElement("section");
+                section.className = "group";
+                const title = document.createElement("h2");
+                title.className = "group-title";
+                title.innerHTML = `${grade}<span>${items.length} \u8ab2</span>`;
+                const grid = document.createElement("div");
+                grid.className = "lesson-grid";
+                grid.append(...items.map(renderLessonCard));
+                section.append(title, grid);
+                return section;
+            });
+            lessonGroups.replaceChildren(...sections);
+        }
+        function render() {
+            renderFilters();
+            const lessons = filterLessons();
+            visibleCount.textContent = lessons.length;
+            renderGroups(lessons);
+        }
+        searchInput.addEventListener("input", event => {
+            state.query = event.target.value;
+            render();
+        });
+        render();
+    </script>
+</body>
+</html>
