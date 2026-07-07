@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -632,31 +632,29 @@
             return arr;
         }
         const QUESTIONS_DB = {
-            word: [
-                { id: 'w1', q: "張[]", options: shuffleArray(["悶", "開", "閑"]), a: "開", full: "張開" },
-                { id: 'w2', q: "露[]", options: shuffleArray(["台", "出", "占"]), a: "出", full: "露出" },
-                { id: 'w3', q: "[]手", options: shuffleArray(["忽", "招", "兖"]), a: "招", full: "招手" },
-                { id: 'w4', q: "[]子", options: shuffleArray(["芹", "車", "步"]), a: "車", full: "車子" },
-                { id: 'w5', q: "車[]", options: shuffleArray(["凡", "子", "夊"]), a: "子", full: "車子" },
-                { id: 'w6', q: "[]上", options: shuffleArray(["他", "地", "池"]), a: "地", full: "地上" },
-                { id: 'w7', q: "小[]", options: shuffleArray(["杓", "花", "灸"]), a: "花", full: "小花" },
-                { id: 'w8', q: "一[]", options: shuffleArray(["邠", "朵", "兇"]), a: "朵", full: "一朵" },
-                { id: 'w9', q: "開[]", options: shuffleArray(["左", "在", "佐"]), a: "在", full: "開在" },
-                { id: 'w10', q: "[]臉", options: shuffleArray(["栩", "笑", "浦"]), a: "笑", full: "笑臉" }
-            ],
-            sentence: [
-                { id: 's1', q: "生活中遇到張悶時，我會多注意。", wrong: "悶", a: "開", full: "生活中遇到張開時，我會多注意。" },
-                { id: 's2', q: "今天上課時，老師分享了露台的故事。", wrong: "台", a: "出", full: "今天上課時，老師分享了露出的故事。" },
-                { id: 's3', q: "我和家人聊到忽手，覺得很有趣。", wrong: "忽", a: "招", full: "我和家人聊到招手，覺得很有趣。" },
-                { id: 's4', q: "這張照片裡的芹子吸引了大家的目光。", wrong: "芹", a: "車", full: "這張照片裡的車子吸引了大家的目光。" },
-                { id: 's5', q: "生活中遇到車凡時，我會多注意。", wrong: "凡", a: "子", full: "生活中遇到車子時，我會多注意。" },
-                { id: 's6', q: "今天上課時，老師分享了他上的故事。", wrong: "他", a: "地", full: "今天上課時，老師分享了地上的故事。" },
-                { id: 's7', q: "我和家人聊到小杓，覺得很有趣。", wrong: "杓", a: "花", full: "我和家人聊到小花，覺得很有趣。" },
-                { id: 's8', q: "這張照片裡的一邠吸引了大家的目光。", wrong: "邠", a: "朵", full: "這張照片裡的一朵吸引了大家的目光。" },
-                { id: 's9', q: "生活中遇到開左時，我會多注意。", wrong: "左", a: "在", full: "生活中遇到開在時，我會多注意。" },
-                { id: 's10', q: "今天上課時，老師分享了栩臉的故事。", wrong: "栩", a: "笑", full: "今天上課時，老師分享了笑臉的故事。" }
-            ]
-        };
+  word: [
+    { id: "w1", q: "張[]", options: ["開", "升", "關"], a: "開", full: "張開" },
+    { id: "w2", q: "[]手", options: ["招", "找", "沼"], a: "招", full: "招手" },
+    { id: "w3", q: "[]子", options: ["車", "東", "軍"], a: "車", full: "車子" },
+    { id: "w4", q: "車[]", options: ["子", "了", "字"], a: "子", full: "車子" },
+    { id: "w5", q: "[]上", options: ["地", "的", "他"], a: "地", full: "地上" },
+    { id: "w6", q: "小[]", options: ["花", "華", "畫"], a: "花", full: "小花" },
+    { id: "w7", q: "一[]", options: ["朵", "多", "躲"], a: "朵", full: "一朵" },
+    { id: "w8", q: "開[]", options: ["在", "再", "載"], a: "在", full: "開在" },
+    { id: "w9", q: "[]臉", options: ["笑", "效", "哭"], a: "笑", full: "笑臉" }
+  ],
+  sentence: [
+    { id: "s1", q: "小鳥張合翅膀飛走了。", wrong: "合", a: "開", full: "小鳥張開翅膀飛走了。" },
+    { id: "s2", q: "爸爸在門口向我找手。", wrong: "找", a: "招", full: "爸爸在門口向我招手。" },
+    { id: "s3", q: "馬路上有很多東子在跑。", wrong: "東", a: "車", full: "馬路上有很多車子在跑。" },
+    { id: "s4", q: "這台小車字是我的玩具。", wrong: "字", a: "子", full: "這台小車子是我的玩具。" },
+    { id: "s5", q: "書包被弟弟丟在的上。", wrong: "的", a: "地", full: "書包被弟弟丟在地上。" },
+    { id: "s6", q: "花園裡開了一朵小華。", wrong: "華", a: "花", full: "花園裡開了一朵小花。" },
+    { id: "s7", q: "天空中有一多白雲。", wrong: "多", a: "朵", full: "天空中有一朵白雲。" },
+    { id: "s8", q: "漂亮的花兒開再草地上。", wrong: "再", a: "在", full: "漂亮的花兒開在草地上。" },
+    { id: "s9", q: "妹妹帶著效臉跑過來。", wrong: "效", a: "笑", full: "妹妹帶著笑臉跑過來。" }
+  ]
+};
 
         const gameState = {
             studentName: '',

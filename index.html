@@ -158,8 +158,8 @@
         }
         .lesson-card {
             display: grid;
-            grid-template-rows: auto 1fr auto;
-            min-height: 142px;
+            grid-template-rows: auto 1fr;
+            min-height: 118px;
             padding: 14px;
             border: 1px solid var(--line);
             border-left: 6px solid var(--brand);
@@ -288,15 +288,11 @@
             card.href = encodeURI(item.path);
             const code = document.createElement("div");
             code.className = "lesson-code";
-            code.textContent = `${item.code} \u00b7 ${item.lesson}`;
+            code.textContent = item.lesson;
             const title = document.createElement("div");
             title.className = "lesson-title";
             title.textContent = item.title;
-            const meta = document.createElement("div");
-            meta.className = "lesson-meta";
-            const totalQuestions = Number(item.wordQuestions) + Number(item.sentenceQuestions);
-            meta.innerHTML = `<span>${item.targets} \u500b\u76ee\u6a19\u5b57</span><span>${totalQuestions} \u984c</span>`;
-            card.append(code, title, meta);
+            card.append(code, title);
             return card;
         }
         function renderGroups(lessons) {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -632,31 +632,31 @@
             return arr;
         }
         const QUESTIONS_DB = {
-            word: [
-                { id: 'w1', q: "[]泡", options: shuffleArray(["抱", "泡", "跑"]), a: "泡", full: "泡泡" },
-                { id: 'w2', q: "[]具", options: shuffleArray(["完", "玩", "頑"]), a: "玩", full: "玩具" },
-                { id: 'w3', q: "[]家", options: shuffleArray(["太", "大", "犬"]), a: "大", full: "大家" },
-                { id: 'w4', q: "一[]", options: shuffleArray(["走", "起", "赴"]), a: "起", full: "一起" },
-                { id: 'w5', q: "[]多", options: shuffleArray(["妹", "好", "妳"]), a: "好", full: "好多" },
-                { id: 'w6', q: "好[]", options: shuffleArray(["夕", "多", "夠"]), a: "多", full: "好多" },
-                { id: 'w7', q: "[]們", options: shuffleArray(["找", "我", "餓"]), a: "我", full: "我們" },
-                { id: 'w8', q: "我[]", options: shuffleArray(["白", "的", "約"]), a: "的", full: "我的" },
-                { id: 'w9', q: "[]們", options: shuffleArray(["妳", "你", "您"]), a: "你", full: "你們" },
-                { id: 'w10', q: "[]抱", options: shuffleArray(["泡", "抱", "跑"]), a: "抱", full: "抱抱" }
-            ],
-            sentence: [
-                { id: 's1', q: "生活中遇到抱泡時，我會多注意。", wrong: "抱", a: "泡", full: "生活中遇到泡泡時，我會多注意。" },
-                { id: 's2', q: "今天上課時，老師分享了完具的故事。", wrong: "完", a: "玩", full: "今天上課時，老師分享了玩具的故事。" },
-                { id: 's3', q: "我和家人聊到太家，覺得很有趣。", wrong: "太", a: "大", full: "我和家人聊到大家，覺得很有趣。" },
-                { id: 's4', q: "這張照片裡的一走吸引了大家的目光。", wrong: "走", a: "起", full: "這張照片裡的一起吸引了大家的目光。" },
-                { id: 's5', q: "生活中遇到妹多時，我會多注意。", wrong: "妹", a: "好", full: "生活中遇到好多時，我會多注意。" },
-                { id: 's6', q: "今天上課時，老師分享了好夕的故事。", wrong: "夕", a: "多", full: "今天上課時，老師分享了好多的故事。" },
-                { id: 's7', q: "找和家人聊到我們，覺得很有趣。", wrong: "找", a: "我", full: "我和家人聊到我們，覺得很有趣。" },
-                { id: 's8', q: "這張照片裡白我的吸引了大家的目光。", wrong: "白", a: "的", full: "這張照片裡的我的吸引了大家的目光。" },
-                { id: 's9', q: "生活中遇到妳們時，我會多注意。", wrong: "妳", a: "你", full: "生活中遇到你們時，我會多注意。" },
-                { id: 's10', q: "今天上課時，老師分享了泡抱的故事。", wrong: "泡", a: "抱", full: "今天上課時，老師分享了抱抱的故事。" }
-            ]
-        };
+  word: [
+    { id: "w1", q: "吹[]泡", options: ["泡", "包", "跑"], a: "泡", full: "吹泡泡" },
+    { id: "w2", q: "[]玩具", options: ["玩", "完", "元"], a: "玩", full: "玩玩具" },
+    { id: "w3", q: "[]家好", options: ["大", "太", "犬"], a: "大", full: "大家好" },
+    { id: "w4", q: "一[]走", options: ["起", "已", "己"], a: "起", full: "一起走" },
+    { id: "w5", q: "[]學生", options: ["好", "女", "如"], a: "好", full: "好學生" },
+    { id: "w6", q: "太[]了", options: ["多", "夕", "名"], a: "多", full: "太多了" },
+    { id: "w7", q: "[]是誰", options: ["我", "找", "錢"], a: "我", full: "我是誰" },
+    { id: "w8", q: "美麗[]", options: ["的", "得", "地"], a: "的", full: "美麗的" },
+    { id: "w9", q: "[]是誰", options: ["你", "妳", "尼"], a: "你", full: "你是誰" },
+    { id: "w10", q: "[]抱我", options: ["抱", "跑", "飽"], a: "抱", full: "抱抱我" }
+  ],
+  sentence: [
+    { id: "s1", q: "妹妹最喜歡吹包包了。", wrong: "包", a: "泡", full: "妹妹最喜歡吹泡泡了。" },
+    { id: "s2", q: "哥哥在公園完球。", wrong: "完", a: "玩", full: "哥哥在公園玩球。" },
+    { id: "s3", q: "太家都到齊了嗎？", wrong: "太", a: "大", full: "大家都到齊了嗎？" },
+    { id: "s4", q: "我們一已去上學吧。", wrong: "已", a: "起", full: "我們一起去上學吧。" },
+    { id: "s5", q: "這裡有媽多可愛的貓。", wrong: "媽", a: "好", full: "這裡有好多可愛的貓。" },
+    { id: "s6", q: "這裡有很夕漂亮的樹。", wrong: "夕", a: "多", full: "這裡有很多漂亮的樹。" },
+    { id: "s7", q: "找是一個好孩子。", wrong: "找", a: "我", full: "我是一個好孩子。" },
+    { id: "s8", q: "這是你得書包嗎？", wrong: "得", a: "的", full: "這是你的書包嗎？" },
+    { id: "s9", q: "尼要去哪裡玩？", wrong: "尼", a: "你", full: "你要去哪裡玩？" },
+    { id: "s10", q: "我想跑跑可愛的小狗。", wrong: "跑", a: "抱", full: "我想抱抱可愛的小狗。" }
+  ]
+};
 
         const gameState = {
             studentName: '',

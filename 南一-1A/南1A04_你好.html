@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -632,33 +632,33 @@
             return arr;
         }
         const QUESTIONS_DB = {
-            word: [
-                { id: 'w1', q: "[]爸", options: shuffleArray(["爺", "爸", "斧"]), a: "爸", full: "爸爸" },
-                { id: 'w2', q: "[]達", options: shuffleArray(["倒", "到", "列"]), a: "到", full: "到達" },
-                { id: 'w3', q: "[]青的", options: shuffleArray(["請", "青", "清"]), a: "青", full: "青青的" },
-                { id: 'w4', q: "大[]", options: shuffleArray(["收", "叫", "糾"]), a: "叫", full: "大叫" },
-                { id: 'w5', q: "一[]子", options: shuffleArray(["卞", "下", "不"]), a: "下", full: "一下子" },
-                { id: 'w6', q: "[]頭", options: shuffleArray(["哪", "那", "娜"]), a: "那", full: "那頭" },
-                { id: 'w7', q: "[]平", options: shuffleArray(["知", "和", "利"]), a: "和", full: "和平" },
-                { id: 'w8', q: "重[]", options: shuffleArray(["耍", "要", "票"]), a: "要", full: "重要" },
-                { id: 'w9', q: "[]人", options: shuffleArray(["地", "他", "池"]), a: "他", full: "他人" },
-                { id: 'w10', q: "[]友", options: shuffleArray(["明", "朋", "棚"]), a: "朋", full: "朋友" },
-                { id: 'w11', q: "朋[]", options: shuffleArray(["反", "友", "右"]), a: "友", full: "朋友" }
-            ],
-            sentence: [
-                { id: 's1', q: "爺爸帶我去公園散步。", wrong: "爺", a: "爸", full: "爸爸帶我去公園散步。" },
-                { id: 's2', q: "我準時倒達學校。", wrong: "倒", a: "到", full: "我準時到達學校。" },
-                { id: 's3', q: "公園裡有請青的草地。", wrong: "請", a: "青", full: "公園裡有青青的草地。" },
-                { id: 's4', q: "弟弟在操場上大收。", wrong: "收", a: "叫", full: "弟弟在操場上大叫。" },
-                { id: 's5', q: "妹妹一卞子就把積木收好了。", wrong: "卞", a: "下", full: "妹妹一下子就把積木收好了。" },
-                { id: 's6', q: "今天上課時，老師分享了哪頭的故事。", wrong: "哪", a: "那", full: "今天上課時，老師分享了那頭的故事。" },
-                { id: 's7', q: "大家知平相處，教室裡很安靜。", wrong: "知", a: "和", full: "大家和平相處，教室裡很安靜。" },
-                { id: 's8', q: "整理書包是一件重耍的事。", wrong: "耍", a: "要", full: "整理書包是一件重要的事。" },
-                { id: 's9', q: "我們要尊重地人的想法。", wrong: "地", a: "他", full: "我們要尊重他人的想法。" },
-                { id: 's10', q: "下課時，我和明友一起玩。", wrong: "明", a: "朋", full: "下課時，我和朋友一起玩。" },
-                { id: 's11', q: "下課時，我和朋反一起玩。", wrong: "反", a: "友", full: "下課時，我和朋友一起玩。" }
-            ]
-        };
+  word: [
+    { id: "w1", q: "[]爸", options: ["爸", "把", "吧"], a: "爸", full: "爸爸" },
+    { id: "w2", q: "來[]", options: ["道", "倒", "到"], a: "到", full: "來到" },
+    { id: "w3", q: "[]青的", options: ["青", "清", "請"], a: "青", full: "青青的" },
+    { id: "w4", q: "大[]", options: ["糾", "叫", "收"], a: "叫", full: "大叫" },
+    { id: "w5", q: "一[]子", options: ["上", "下", "不"], a: "下", full: "一下子" },
+    { id: "w6", q: "[]頭", options: ["那", "哪", "內"], a: "那", full: "那頭" },
+    { id: "w7", q: "我[]你", options: ["合", "河", "和"], a: "和", full: "我和你" },
+    { id: "w8", q: "[]要", options: ["要", "耍", "西"], a: "要", full: "要要" },
+    { id: "w9", q: "[]們", options: ["地", "她", "他"], a: "他", full: "他們" },
+    { id: "w10", q: "[]友", options: ["朋", "明", "棚"], a: "朋", full: "朋友" },
+    { id: "w11", q: "朋[]", options: ["有", "右", "友"], a: "友", full: "朋友" }
+  ],
+  sentence: [
+    { id: "s1", q: "我的把爸很辛苦。", wrong: "把", a: "爸", full: "我的爸爸很辛苦。" },
+    { id: "s2", q: "我已經看道學校了。", wrong: "道", a: "到", full: "我已經看到學校了。" },
+    { id: "s3", q: "山上有清清的小草。", wrong: "清", a: "青", full: "山上有青青的小草。" },
+    { id: "s4", q: "小狗在門口大收。", wrong: "收", a: "叫", full: "小狗在門口大叫。" },
+    { id: "s5", q: "雨一上子就停了。", wrong: "上", a: "下", full: "雨一下子就停了。" },
+    { id: "s6", q: "哪頭有一隻大象。", wrong: "哪", a: "那", full: "那頭有一隻大象。" },
+    { id: "s7", q: "我合你一起去玩。", wrong: "合", a: "和", full: "和我你一起去玩。" },
+    { id: "s8", q: "我耍去寫功課了。", wrong: "耍", a: "要", full: "我要去寫功課了。" },
+    { id: "s9", q: "地是我的哥哥。", wrong: "地", a: "他", full: "他是我的哥哥。" },
+    { id: "s10", q: "他是我的好明友。", wrong: "明", a: "朋", full: "他是我的好朋友。" },
+    { id: "s11", q: "我們是好朋有。", wrong: "有", a: "友", full: "我們是好朋友。" }
+  ]
+};
 
         const gameState = {
             studentName: '',

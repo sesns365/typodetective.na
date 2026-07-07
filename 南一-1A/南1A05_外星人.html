@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -632,33 +632,33 @@
             return arr;
         }
         const QUESTIONS_DB = {
-            word: [
-                { id: 'w1', q: "[]星人", options: shuffleArray(["市", "外", "卉"]), a: "外", full: "外星人" },
-                { id: 'w2', q: "[]家", options: shuffleArray(["岍", "住", "坏"]), a: "住", full: "住家" },
-                { id: 'w3', q: "哪[]", options: shuffleArray(["鸭", "個", "捅"]), a: "個", full: "哪個" },
-                { id: 'w4', q: "我[]", options: shuffleArray(["烨", "們", "哭"]), a: "們", full: "我們" },
-                { id: 'w5', q: "[]裡", options: shuffleArray(["倍", "這", "桎"]), a: "這", full: "這裡" },
-                { id: 'w6', q: "這[]", options: shuffleArray(["提", "裡", "谟"]), a: "裡", full: "這裡" },
-                { id: 'w7', q: "[]趣", options: shuffleArray(["先", "有", "存"]), a: "有", full: "有趣" },
-                { id: 'w8', q: "有[]有", options: shuffleArray(["沇", "沒", "忾"]), a: "沒", full: "有沒有" },
-                { id: 'w9', q: "[]非", options: shuffleArray(["泶", "是", "俩"]), a: "是", full: "是非" },
-                { id: 'w10', q: "[]麼", options: shuffleArray(["井", "什", "讣"]), a: "什", full: "什麼" },
-                { id: 'w11', q: "什[]", options: shuffleArray(["赘", "麼", "凳"]), a: "麼", full: "什麼" }
-            ],
-            sentence: [
-                { id: 's1', q: "生活中遇到市星人時，我會多注意。", wrong: "市", a: "外", full: "生活中遇到外星人時，我會多注意。" },
-                { id: 's2', q: "今天上課時，老師分享了岍家的故事。", wrong: "岍", a: "住", full: "今天上課時，老師分享了住家的故事。" },
-                { id: 's3', q: "我和家人聊到哪鸭，覺得很有趣。", wrong: "鸭", a: "個", full: "我和家人聊到哪個，覺得很有趣。" },
-                { id: 's4', q: "這張照片裡的我烨吸引了大家的目光。", wrong: "烨", a: "們", full: "這張照片裡的我們吸引了大家的目光。" },
-                { id: 's5', q: "生活中遇到倍裡時，我會多注意。", wrong: "倍", a: "這", full: "生活中遇到這裡時，我會多注意。" },
-                { id: 's6', q: "今天上課時，老師分享了這提的故事。", wrong: "提", a: "裡", full: "今天上課時，老師分享了這裡的故事。" },
-                { id: 's7', q: "我和家人聊到先趣，覺得很有趣。", wrong: "先", a: "有", full: "我和家人聊到有趣，覺得很有趣。" },
-                { id: 's8', q: "這張照片裡的有沇有吸引了大家的目光。", wrong: "沇", a: "沒", full: "這張照片裡的有沒有吸引了大家的目光。" },
-                { id: 's9', q: "生活中遇到泶非時，我會多注意。", wrong: "泶", a: "是", full: "生活中遇到是非時，我會多注意。" },
-                { id: 's10', q: "今天上課時，老師分享了井麼的故事。", wrong: "井", a: "什", full: "今天上課時，老師分享了什麼的故事。" },
-                { id: 's11', q: "我和家人聊到什赘，覺得很有趣。", wrong: "赘", a: "麼", full: "我和家人聊到什麼，覺得很有趣。" }
-            ]
-        };
+  word: [
+    { id: "w1", q: "[]星人", options: ["外", "處", "多"], a: "外", full: "外星人" },
+    { id: "w2", q: "居[]", options: ["住", "注", "柱"], a: "住", full: "居住" },
+    { id: "w3", q: "哪[]", options: ["個", "各", "格"], a: "個", full: "哪個" },
+    { id: "w4", q: "我[]", options: ["們", "門", "悶"], a: "們", full: "我們" },
+    { id: "w5", q: "[]裡", options: ["這", "著", "遮"], a: "這", full: "這裡" },
+    { id: "w6", q: "這[]", options: ["裡", "理", "李"], a: "裡", full: "這裡" },
+    { id: "w7", q: "[]沒有", options: ["有", "又", "友"], a: "有", full: "有沒有" },
+    { id: "w8", q: "有[]有", options: ["沒", "妹", "眉"], a: "沒", full: "有沒有" },
+    { id: "w9", q: "[]不[]", options: ["是", "事", "式"], a: "是", full: "是不[]" },
+    { id: "w10", q: "[]麼", options: ["什", "十", "石"], a: "什", full: "什麼" },
+    { id: "w11", q: "什[]", options: ["麼", "磨", "摩"], a: "麼", full: "什麼" }
+  ],
+  sentence: [
+    { id: "s1", q: "天空出現了處星人。", wrong: "處", a: "外", full: "天空出現了外星人。" },
+    { id: "s2", q: "你注在哪裡呢？", wrong: "注", a: "住", full: "你住在哪裡呢？" },
+    { id: "s3", q: "你要哪各玩具？", wrong: "各", a: "個", full: "你要哪個玩具？" },
+    { id: "s4", q: "我門一起去公園。 ", wrong: "門", a: "們", full: "我們一起去公園。" },
+    { id: "s5", q: "著裡有一本書。", wrong: "著", a: "這", full: "這裡有一本書。" },
+    { id: "s6", q: "盒子理有餅乾。", wrong: "理", a: "裡", full: "盒子裡有餅乾。" },
+    { id: "s7", q: "書包又一顆蘋果。", wrong: "又", a: "有", full: "書包有一顆蘋果。" },
+    { id: "s8", q: "我妹有帶雨傘。", wrong: "妹", a: "沒", full: "我沒有帶雨傘。" },
+    { id: "s9", q: "他事我的好朋友。", wrong: "事", a: "是", full: "他是我的好朋友。" },
+    { id: "s10", q: "你在看十麼書？", wrong: "十", a: "什", full: "你在看什麼書？" },
+    { id: "s11", q: "為什磨會這樣？", wrong: "磨", a: "麼", full: "為什麼會這樣？" }
+  ]
+};
 
         const gameState = {
             studentName: '',
